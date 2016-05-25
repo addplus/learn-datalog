@@ -2,7 +2,7 @@
 (require '[boot.core :refer :all])
 
 (def boot-version
-  (get (boot.App/config) "BOOT_VERSION" "2.5.5"))
+  (get (boot.App/config) "BOOT_VERSION" "2.6.0"))
 
 (defn read-project-clj []
   (let [l (-> "project.clj" slurp read-string)]
@@ -36,8 +36,8 @@
          :license     (get lein-proj :license {"EPL" "http://www.eclipse.org/legal/epl-v10.html"})}))
 
 (deftask dev
-         "Backend in development mode"
-         []
-         (require '[learn-datalog :refer :all])
-         (comp
-           (repl)))
+  "Backend in development mode"
+  []
+  (require '[learn-datalog :refer :all])
+  (comp
+    (repl)))
